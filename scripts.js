@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Adiciona evento de clique para o botão de simulação
     simulateButton.addEventListener('click', () => {
         if (selectedBoss) {
-            fetch(`http://localhost:3000/loot?boss=${encodeURIComponent(selectedBoss)}`)
+            fetch(`data.json`)
                 .then(response => response.json())
                 .then(data => {
 					
