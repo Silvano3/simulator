@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventário do Jogo</title>
+    <link rel="stylesheet" href="styles.css">
+	
+</head>
+<body>
+    <div class="title-container">
+        <div class="title-background"></div>
+		<div class="button-background"></div>
+		<div class="center-background"></div>
+		<div class="Count-background"></div>
+		<div class="Count-background2"></div>
+    <h1>Inventário</h1>
+
+    <!-- Contêiner da imagem de fundo -->
+    <div class="background-container">
+        <!-- Inventário -->
+        <div id="inventory" class="inventory">
+            <!-- O inventário será preenchido via JavaScript -->
+        </div>
+    </div>
+    
+
+
+
+<!-- Container para o aviso -->
+<div id="boss-alert" class="alert hidden">Por favor, selecione um boss antes de simular.</div>
+	
+	
+	
+    <!-- Formulário de seleção do boss -->
+<!-- Contêiner para a seleção dos bosses -->
+<div class="boss-selection-wrapper">
+    <div class="boss-selection-background"></div>
+    <div class="boss-selection-container">
+        <div class="boss-button" data-boss="Echo of Andariel">
+            <img src="images/andariel.jpg" alt="Echo of Andariel">
+            <span>Andariel</span>
+        </div>
+        <div class="boss-button" data-boss="Uber Duriel">
+            <img src="images/duriel.jpg" alt="Uber Duriel">
+            <span>Duriel</span>
+        </div>
+        <div class="boss-button" data-boss="The Beast in the Ice">
+            <img src="images/beast-in-the-ice.jpg" alt="The Beast in the Ice">
+            <span>Beast</span>
+        </div>
+        <div class="boss-button" data-boss="Lord Zir">
+            <img src="images/lord-zir.jpg" alt="Lord Zir">
+            <span>Zir</span>
+        </div>
+        <div class="boss-button" data-boss="Grigoire, The Galvanic Saint">
+            <img src="images/grigoire.jpg" alt="Grigoire, The Galvanic Saint">
+            <span>Grigoire</span>
+        </div>
+        <div class="boss-button" data-boss="Echos of Varshan">
+            <img src="images/echo-of-varshan.jpg" alt="Echos of Varshan">
+            <span>Varshan</span>
+        </div>
+    </div>
+        <button id="simulateButton" class="image-button">simulate</button>
+    </div>
+
+		<div class="Count-background2"><p>simulations: <span id="simulationCount">0</span></p></div>
+		
+		<div class="Count-background">
+
+		</div>
+		
+				<div class="mythic-icon">
+				<img src="images/mythic-icon.png" alt="Icon" id="mythicItemIcon">
+				<span id="mythicItemCount">0</span>
+				</div>
+		
+		<div class="reset">
+			<button id="resetButton">  </button>
+		</div>
+
+    <script src="scripts.js"></script>
+	
+	
+</body>
+</html>

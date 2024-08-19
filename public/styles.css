@@ -1,0 +1,668 @@
+/* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Coloca o conteúdo em coluna */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #1C1C1C;
+}
+
+/* Estilo para o título */
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+	font-family: 'DiabloFont', serif; /* Aplica a fonte DiabloFont */
+    font-weight: bold; /* Peso da fonte */
+	color: white; /* Cor do texto para garantir boa visibilidade */
+    padding-left: 55px; /* Adiciona preenchimento à esquerda para mover o título */
+}
+
+/* Contêiner da imagem de fundo */
+.background-container {
+    position: relative;
+    width: 660px; /* Largura total do inventário, considerando o grid */
+    height: 360px; /* Altura total do inventário, considerando o grid */
+    background: url('images/inventario.png') no-repeat center center;
+    background-size: cover; /* Mantém a imagem de fundo proporcional */
+    border-radius: 8px;
+    margin-bottom: 20px; /* Espaçamento entre o inventário e o formulário */
+}
+
+/* Estilo para o inventário */
+.inventory {
+    display: grid;
+    grid-template-columns: repeat(11, 53.5px); /* Ajuste a largura das colunas */
+    grid-template-rows: repeat(3, 78px); /* Ajuste a altura das linhas */
+    gap: 0; /* Remove o gap para que as células fiquem juntas */
+    position: absolute; /* Posiciona o inventário sobre a imagem de fundo */
+    top: 64px; /* Ajusta a posição vertical do grid */
+    left: 31px; /* Ajusta a posição horizontal do grid */
+    width: calc(92% - 20px); /* Ajusta a largura do grid considerando os ajustes de posição */
+    height: calc(71% - 20px); /* Ajusta a altura do grid considerando os ajustes de posição */
+}
+
+/* Estilo para os itens do inventário */
+.inventory-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 0.5px solid #363636;
+    border-radius: 1px;
+    width: 53.5px; /* Ajuste a largura para corresponder ao tamanho das colunas */
+    height: 78px; /* Ajuste a altura para corresponder ao tamanho das linhas */
+    text-align: center;
+    position: relative; /* Necessário para posicionar o nome corretamente */
+    font-size: 10px;
+    font-weight: bold;
+    color: #333;
+    box-sizing: border-box;
+    margin: 0;
+    overflow: hidden;
+	z-index: 9999; /* Ajuste o z-index se houver sobreposição */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Estilo para a imagem dentro do item do inventário */
+.inventory-item img {
+    width: 100%; /* Faz a imagem preencher a largura do item */
+    height: auto; /* Mantém a proporção da imagem */
+    max-height: 100%; /* Limita a altura da imagem ao tamanho do item */
+    object-fit: contain; /* Faz a imagem se ajustar ao contêiner sem distorção */
+}
+
+/* Nome do item que será exibido ao passar o cursor */
+.item-name {
+    display: none; /* Oculta o nome por padrão */
+    position: absolute; /* Posiciona o nome sobre a imagem */
+    bottom: 0; /* Alinha o nome na parte inferior */
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+    color: #fff; /* Cor do texto */
+    padding: 2px; /* Espaçamento ao redor do texto */
+    font-size: 12px; /* Tamanho da fonte */
+}
+
+
+
+
+
+
+
+/* Estilo para o formulário de seleção */
+.form-container {
+    max-width: 800px; /* Largura máxima para o formulário */
+    text-align: center; /* Centraliza o conteúdo do formulário */
+}
+
+/* Estilo para o formulário e botão */
+label, select, button {
+    margin: 5px 10px; /* Margens para espaçamento entre elementos do formulário */
+}
+
+
+
+/* Estilo para a imagem de referência do inventário básico */
+.inventory-base {
+    margin-bottom: 20px; /* Espaçamento entre a imagem de referência e o inventário */
+    text-align: center; /* Centraliza a imagem de referência */
+}
+
+.inventory-base img {
+    max-width: 100%; /* Ajusta a imagem para não ultrapassar a largura do container */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Adiciona uma borda para itens vazios */
+.inventory-item:empty {
+    border: none; /* Remove a borda para itens vazios, se desejar */
+}
+
+/* Estilo para itens específicos */
+.inventory-item.mythic {
+    background: url('images/mythic.png') no-repeat center center;
+    background-size: cover;
+}
+
+.inventory-item.unique {
+    background: url('images/unic.png') no-repeat center center;
+    background-size: cover;
+}
+
+/* Estilo para itens lendários */
+.inventory-item.legendary {
+    background-image: url('images/legendary.png');
+	background-size: cover;
+}
+
+
+
+
+
+/* Adiciona a transformação e sombra ao passar o mouse */
+.inventory-item.mythic:hover {
+    transform: scale(1); /* Aumenta o item ligeiramente */
+    box-shadow: 0 0 7px rgba(255, 215, 0, 0.8); /* Sombra ao passar o mouse */
+}
+
+/* Adiciona a transformação e sombra ao passar o mouse */
+.inventory-item.unique:hover {
+    transform: scale(1); /* Aumenta o item ligeiramente */
+    box-shadow: 0 0 7px rgba(255, 215, 0, 0.8); /* Sombra ao passar o mouse */
+}
+
+/* Adiciona a transformação e sombra ao passar o mouse */
+.inventory-item.legendary:hover {
+    transform: scale(1); /* Aumenta o item ligeiramente */
+    box-shadow: 0 0 7px rgba(255, 215, 0, 0.8); /* Sombra ao passar o mouse */
+}
+
+
+
+
+
+
+
+@font-face {
+    font-family: 'DiabloFont'; /* Nome para referenciar a fonte */
+    src: url('font/diablo.woff2') format('woff2'), /* URL e formato da fonte */
+         url('font/diablo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/* Estilo geral para o botão */
+.image-button {
+    display: inline-block;
+    width: 175px; /* Ajuste conforme necessário */
+    height: 50px; /* Ajuste conforme necessário */
+    background-image: url('images/button.png'); /* Imagem do centro */
+    background-size: contain; /* Ajusta a imagem para cobrir todo o botão */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    background-position: center; /* Centraliza a imagem */
+	background-color: #1C1C1C; /* Garante que não haja fundo adicional */
+    border: 0; /* Remove a borda padrão */
+    border-radius: 8px; /* Ajuste conforme necessário */
+    position: relative;
+    text-align: center;
+    line-height: 50px; /* Alinha verticalmente o texto no centro */
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte */
+	font-family: 'DiabloFont', serif; /* Aplica a fonte DiabloFont */
+    font-weight: bold; /* Peso da fonte */
+    cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
+    overflow: hidden; /* Oculta qualquer conteúdo que exceda a borda */
+    margin-left: 60px; /* Ajuste conforme necessário */
+	margin-top: 10px; /* Ajuste conforme necessário */
+}
+
+/* Adiciona a borda do botão */
+.image-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 10px solid transparent; /* Define a largura da borda */
+    border-radius: 8px; /* Ajuste conforme necessário */
+    background-image: url('images/button-border-red.png'); /* Imagem da borda */
+    background-size: contain; /* Ajusta a imagem da borda para cobrir o botão */
+    background-position: center; /* Centraliza a imagem da borda */
+    z-index: -1; /* Garante que a borda fique atrás do conteúdo do botão */
+    box-sizing: border-box; /* Inclui a borda no tamanho total do botão */
+}
+
+
+
+
+/* Contêiner para o título e a imagem de fundo */
+.title-container {
+    position: relative; /* Define o contexto de empilhamento para o título e a imagem */
+    width: 100%; /* Ajuste conforme necessário */
+    max-width: 600px; /* Ajuste conforme necessário */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+/* Imagem de fundo do título */
+.title-background {
+    position: absolute; /* Posiciona a imagem de fundo absolutamente */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/title-background.png'); /* Caminho para a imagem de fundo */
+    background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    z-index: -1; /* Garante que a imagem fique atrás do texto */
+    height: 300px; /* Ajuste conforme necessário */
+    width: 100%; /* Ajuste conforme necessário */
+	padding-left: 55px; /* Adiciona preenchimento à esquerda para mover o título */
+}
+
+
+
+
+
+
+/* Estilo para o formulário de seleção */
+.form-container {
+    max-width: 800px; /* Largura máxima para o formulário */
+    text-align: center; /* Centraliza o conteúdo do formulário */
+    margin-top: 20px; /* Espaçamento superior para o formulário */
+}
+
+/* Estilo para os botões de seleção dos bosses */
+.boss-selection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.boss-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 0;
+    border: 2px solid transparent; /* Borda padrão transparente */
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+.boss-button img {
+    display: block;
+    max-width: 100px; /* Ajuste conforme necessário */
+    height: auto;
+    border-radius: 8px; /* Borda arredondada */
+}
+
+.boss-button:hover {
+    border-color: #FFD700; /* Cor da borda ao passar o mouse */
+}
+
+.boss-button.selected {
+    border-color: #FF4500; /* Cor da borda ao selecionar */
+}
+
+
+
+
+
+
+/* Estilo para o contêiner de seleção dos bosses */
+/* Estilo para o contêiner de seleção dos bosses */
+.boss-selection-container {
+    display: flex;
+    flex-direction: column; /* Alinha os botões verticalmente */
+    align-items: center; /* Centraliza os botões horizontalmente */
+    gap: 7px; /* Espaçamento entre os botões */
+    margin: 30px; /* Espaçamento abaixo da seleção */
+	z-index: -2;
+    margin-left: 690px; /* Ajuste conforme necessário */
+    margin-top: -350px;  /* Ajuste conforme necessário */
+}
+
+/* Estilo para cada botão de boss */
+.boss-button {
+    display: flex;
+    flex-direction: column; /* Alinha a imagem e o texto verticalmente */
+    align-items: center; /* Centraliza a imagem e o texto horizontalmente */
+    width: 40px; /* Tamanho dos botões */
+    height: 40px; /* Tamanho dos botões */
+    cursor: pointer; /* Indica que o botão é clicável */
+    border: 2px solid transparent; /* Define uma borda transparente para o efeito de seleção */
+    border-radius: 8px; /* Borda arredondada */
+    padding: 0; /* Remove o padding interno */
+    margin: 0; /* Remove a margem ao redor do botão */
+    background-color: #1C1C1C; /* Fundo do botão */
+    transition: border-color 0.3s; /* Transição suave para a seleção */
+}
+
+/* Estilo para a imagem do botão do boss */
+.boss-button img {
+    width: 40px; /* Ajuste conforme necessário para corresponder ao tamanho do botão */
+    height: 40px; /* Ajuste conforme necessário para corresponder ao tamanho do botão */
+    display: block; /* Remove o espaço abaixo da imagem */
+    object-fit: cover; /* Faz a imagem cobrir o botão sem distorção */
+}
+
+/* Estilo para o texto do botão do boss */
+.boss-button span {
+    color: white; /* Cor do texto */
+    font-family: 'DiabloFont', serif; /* Aplica a fonte DiabloFont */
+    font-size: 12px; /* Ajuste conforme necessário */
+    font-weight: bold; /* Peso da fonte */
+}
+
+/* Efeito de seleção para o botão do boss */
+.boss-button.selected {
+    border-color: #ff2600c2; /* Cor da borda quando selecionado */
+}
+
+
+
+/* Estilo para o contêiner geral da seleção de bosses */
+.boss-selection-wrapper {
+    position: relative; /* Define o contexto de empilhamento para o título e a imagem */
+    width: 100%; /* Ajuste conforme necessário */
+    max-width: 600px; /* Ajuste conforme necessário */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+/* Estilo para a imagem de fundo da seleção de bosses */
+.boss-selection-background {
+    position: absolute; /* Posiciona a imagem de fundo absolutamente */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/background-d.png'); /* Caminho para a imagem de fundo */
+    background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    z-index: -1; /* Garante que a imagem fique atrás do texto */
+    height: 300px; /* Ajuste conforme necessário */
+    width: 100%; /* Ajuste conforme necessário */
+	padding-left: 55px; /* Adiciona preenchimento à esquerda para mover o título */
+}
+
+
+
+
+/* Imagem de fundo do título */
+.title-background {
+    position: absolute; /* Posiciona a imagem de fundo absolutamente */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/title-background.png'); /* Caminho para a imagem de fundo */
+    background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    z-index: -1; /* Garante que a imagem fique atrás do texto */
+    height: 300px; /* Ajuste conforme necessário */
+    width: 100%; /* Ajuste conforme necessário */
+	padding-left: 55px; /* Adiciona preenchimento à esquerda para mover o título */
+}
+
+
+
+
+/* Imagem de fundo do título */
+.boss-selection-background {
+    position: absolute; /* Posiciona a imagem de fundo absolutamente */
+    top: 0; /* Pode ser ajustado conforme necessário */
+    left: 0; /* Pode ser ajustado conforme necessário */
+    width: 180px; /* Ajuste conforme necessário */
+    height: 100px; /* Ajuste conforme necessário */
+    background-image: url('images/background-d.png'); /* Caminho para a imagem de fundo */
+    background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    z-index: -2; /* Garante que a imagem fique atrás dos botões */
+    margin-top: 100px; /* Adiciona margem superior para mover a imagem para baixo */
+    margin-left: 500px; /* Adiciona margem superior para mover a imagem para baixo */
+	transform: scale(3.5); /* Aumenta o tamanho da imagem em 150% */
+}
+
+
+
+/* Estilo para o texto sobre a imagem do botão do boss */
+.boss-button span {
+    position: absolute; /* Posiciona o texto absolutamente dentro do botão */
+    color: white; /* Cor do texto */
+    font-family: 'DiabloFont', serif; /* Aplica a fonte DiabloFont */
+    font-size: 10px; /* Ajuste conforme necessário */
+    font-weight: bold; /* Peso da fonte */
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo translúcido para melhorar a legibilidade */
+    border-radius: 4px; /* Borda arredondada para o fundo do texto */
+}
+
+
+/* Imagem de fundo do título */
+.button-background {
+    position: absolute; /* Posiciona a imagem de fundo absolutamente */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/title-background.png'); /* Caminho para a imagem de fundo */
+    background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    z-index: -1; /* Garante que a imagem fique atrás do texto */
+    height: 840px; /* Ajuste conforme necessário */
+    width: 45%; /* Ajuste conforme necessário */
+    padding-left: 0px; /* Adiciona preenchimento à esquerda para mover o título */
+    margin-left: 190px;
+}
+
+
+
+/* Imagem de fundo do título */
+.center-background {
+    position: absolute; /* Posiciona a imagem de fundo absolutamente */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/center-background.png'); /* Caminho para a imagem de fundo */
+    background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    z-index: -1; /* Garante que a imagem fique atrás do texto */
+    height: 505px; /* Ajuste conforme necessário */
+    width: 121%; /* Ajuste conforme necessário */
+    padding-left: 0px; /* Adiciona preenchimento à esquerda para mover o título */
+    margin-left: -40px;
+}
+
+
+
+.alert {
+    position: absolute;
+    top: 60px;  /* Ajuste a partir do topo do contêiner */
+    right: 50px;  /* Ajuste a partir da direita do contêiner */
+    padding: 15px;
+    background-image: url('images/alert-background.png'); /* Caminho para a imagem de fundo */
+    background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
+    background-position: center; /* Centraliza a imagem */
+	background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+	height: 200px; /* Ajuste conforme necessário */
+    width: 70%; /* Ajuste conforme necessário */
+	font-family: 'DiabloFont', serif; /* Aplica a fonte DiabloFont */
+    font-weight: bold; /* Peso da fonte */
+	text-align: center;
+    padding-top: 180px; /* Adiciona preenchimento à esquerda para mover o título */
+	color: white; /* Cor do texto para garantir boa visibilidade */
+    color: #91202b;
+    display: none;
+    z-index: 1000; /* Certifique-se de que o aviso esteja acima de outros elementos */
+}
+
+/* Classe para mostrar o aviso */
+.alert.show {
+    display: block;
+}
+
+/* Classe para ocultar o aviso */
+.hidden {
+    display: none;
+}
+
+
+/* Imagem de fundo do título */
+.Count-background {
+    position: absolute; /* Posiciona a imagem de fundo absolutamente */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/title-background.png'); /* Caminho para a imagem de fundo */
+    background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    z-index: -10; /* Garante que a imagem fique atrás do texto */
+    height: 790px; /* Ajuste conforme necessário */
+    width: 40%; /* Ajuste conforme necessário */
+    padding-left: 0px; /* Adiciona preenchimento à esquerda para mover o título */
+    margin-left: 400px;
+}
+
+.Count-background p {
+    margin: 438px 0; /* Ajuste de margem para os parágrafos */
+    margin-left: -30px;
+	color: white;
+    z-index: -6; /* Garante que a imagem fique atrás do texto */
+}
+
+
+/* Imagem de fundo do título */
+.Count-background2 {
+    position: absolute; /* Posiciona a imagem de fundo absolutamente */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/title-background.png'); /* Caminho para a imagem de fundo */
+    background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    z-index: -10; /* Garante que a imagem fique atrás do texto */
+    height: 790px; /* Ajuste conforme necessário */
+    width: 40%; /* Ajuste conforme necessário */
+    padding-left: 0px; /* Adiciona preenchimento à esquerda para mover o título */
+    margin-left: 10px;
+	text-align: center; /* Centralizar o texto */
+	font-family: 'DiabloFont', serif; /* Aplica a fonte DiabloFont */
+    font-weight: bold; /* Peso da fonte */
+    font-size: 12px; /* Ajusta o tamanho da fonte do número */
+}
+
+
+.Count-background2 p {
+    margin: 438px 0; /* Ajuste de margem para os parágrafos */
+    margin-left: -30px;
+	color: white;
+    z-index: -6; /* Garante que a imagem fique atrás do texto */
+}
+
+
+.reset {
+    position: absolute; /* Posiciona a imagem de fundo absolutamente */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    z-index: 90; /* Garante que a imagem fique atrás do texto */
+    height: 790px; /* Ajuste conforme necessário */
+    width: 40%; /* Ajuste conforme necessário */
+    padding-left: 0px; /* Adiciona preenchimento à esquerda para mover o título */
+    margin-left: 10px;
+	text-align: center; /* Centralizar o texto */
+}
+
+
+
+#resetButton {
+    display: inline-block;
+    width: 38px; /* Ajuste conforme necessário */
+    height: 38px; /* Ajuste conforme necessário */
+    background-image: url('images/reset.png'); /* Imagem do centro */
+    background-size: contain; /* Ajusta a imagem para cobrir todo o botão */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    background-position: center; /* Centraliza a imagem */
+	background-color: transparent; /* Garante que não haja fundo adicional */
+    border: 0; /* Remove a borda padrão */
+    border-radius: 0px; /* Ajuste conforme necessário */
+    position: relative;
+    text-align: center;
+    line-height: 50px; /* Alinha verticalmente o texto no centro */
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte */
+	font-family: 'DiabloFont', serif; /* Aplica a fonte DiabloFont */
+    font-weight: bold; /* Peso da fonte */
+    cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
+    overflow: hidden; /* Oculta qualquer conteúdo que exceda a borda */
+    margin-left: 565px; /* Ajuste conforme necessário */
+	margin-top: 423px; /* Ajuste conforme necessário */
+    transition: transform 0.3s ease; /* Transição suave para o efeito de transformação */
+    transform-origin: top; /* Define a origem da transformação na parte inferior */
+}
+
+#resetButton:hover {
+    transform: scaleY(1.1); /* Aumenta o tamanho do botão na vertical */
+}
+
+
+
+
+.mythic-icon {
+    position: relative; /* Posiciona a imagem de fundo absolutamente */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    z-index: 30; /* Garante que a imagem fique atrás do texto */
+    padding-left: 0px; /* Adiciona preenchimento à esquerda para mover o título */
+    margin-left: 400px; /* Ajuste conforme necessário */
+	margin-top: -80px; /* Ajuste conforme necessário */
+    display: flex; /* Usa Flexbox para posicionar o conteúdo interno */
+    align-items: center; /* Alinha verticalmente o texto ao centro */
+    justify-content: center; /* Alinha horizontalmente o texto ao centro */
+	color: white; /* Cor do texto */
+    font-size: 24px; /* Ajusta o tamanho da fonte */
+    text-align: center; /* Centraliza o texto dentro do parágrafo */
+	font-family: 'DiabloFont', serif; /* Aplica a fonte DiabloFont */
+    font-weight: bold; /* Peso da fonte */
+
+}
+
+.mythic-icon p {
+    margin: 438px 0; /* Ajuste de margem para os parágrafos */
+    margin-left: -30px;
+	color: white;
+    z-index: 30; /* Garante que a imagem fique atrás do texto */
+}
+
+.mythic-icon p {
+    margin: 0; /* Remove margens padrão */
+    color: white; /* Cor do texto */
+    font-size: 24px; /* Ajusta o tamanho da fonte */
+    text-align: center; /* Centraliza o texto dentro do parágrafo */
+    z-index: 31; /* Garante que o texto fique acima da imagem */
+    padding: 20px; /* Adiciona algum preenchimento ao redor do texto */
+    line-height: 1.5; /* Ajusta a altura da linha para melhor legibilidade */
+    font-family: 'Arial', sans-serif; /* Define a fonte do texto */
+}
+
+
