@@ -80,9 +80,498 @@
 			<button id="resetButton">  </button>
 		</div>
 
-    <script src="data.json"></script>
-    <script src="scripts.js"></script>
-	
+<script>
+
+// data.js
+
+const lootTables = {
+  BossLootTables: {
+    "Echo of Andariel": [
+        // Uniques
+        { name: "Godslayer Crown", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Flickerstep", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Tibault's Will", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "X'Fal's Corroded Signet", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Soulbrand", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Banished Lord's Talisman", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Azurewrath", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Tuskhelm of Joritz the Mighty", dropRate: 0.05, isUnique: true, class: "Barbarian", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Tempest Roar", dropRate: 0.05, isUnique: true, class: "Druid", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Dolmen Stone", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Black River", dropRate: 0.05, isUnique: true, class: "Necromancer", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Blood Moon Breeches", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Cowl of the Nameless", dropRate: 0.05, isUnique: true, class: "Rogue", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Scoundrel's Leathers", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Flamescar", dropRate: 0.05, isUnique: true, class: "Sorcerer", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Blue Rose", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+    ],
+
+    "Uber Duriel": [
+        // Uniques
+        { name: "Godslayer Crown", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Flickerstep", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Tibault's Will", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "X'Fal's Corroded Signet", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Soulbrand", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Banished Lord's Talisman", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Azurewrath", dropRate: 0.001, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Tuskhelm of Joritz the Mighty", dropRate: 0.05, isUnique: true, class: "Barbarian", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Tempest Roar", dropRate: 0.05, isUnique: true, class: "Druid", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Dolmen Stone", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Black River", dropRate: 0.05, isUnique: true, class: "Necromancer", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Blood Moon Breeches", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Cowl of the Nameless", dropRate: 0.05, isUnique: true, class: "Rogue", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Scoundrel's Leathers", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Flamescar", dropRate: 0.05, isUnique: true, class: "Sorcerer", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Blue Rose", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+    ],
+
+    "The Beast in the Ice": [
+        // Uniques
+        { name: "Frostburn", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Mother's Embrace", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Fists of Fate", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Tassets of the Dawning Sky", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Paingorger's Gauntlets", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Fields of Crimson", dropRate: 0.1, isUnique: true, class: "Barbarian", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "100,000 Steps", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Ancients' Oath", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Battle Trance", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Hellhammer", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Ring of the Ravenous", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Insatiable Fury", dropRate: 0.1, isUnique: true, class: "Druid", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Hunter's Zenith", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Waxing Gibbous", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Storm's Companion", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Unsung Ascetic's Wraps", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Bloodless Scream", dropRate: 0.1, isUnique: true, class: "Necromancer", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Howl from Below", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Deathspeaker's Pendant", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Ring of Mendeln", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Mutilator Plate", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Condemnation", dropRate: 0.1, isUnique: true, class: "Rogue", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Word of Hakan", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Windforce", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Eaglehorn", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Beastfall Boots", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Staff of Lam Esen", dropRate: 0.05, isUnique: true, class: "Sorcerer", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Esu's Heirloom", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Gloves of the Illuminator", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "The Oculus", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Starfall Coronet", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+    ],
+
+    "Lord Zir": [
+        // Uniques
+        { name: "Penitent Greaves", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Razorplate", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Temerity", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Yen's Blessing", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Ramaladni's Magnum Opus", dropRate: 0.1, isUnique: true, class: "Barbarian", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Rage of Harrogath", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Gohr's Devastating Grips", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Overkill", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "The Butcher's Cleaver", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Arreat's Bearing", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Mad Wolf's Glee", dropRate: 0.1, isUnique: true, class: "Druid", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Vasily's Prayer", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Greatstaff of the Crone", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Fleshrender", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "The Butcher's Cleaver", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Widheart Hunger", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Blood Artisan's Cuirass", dropRate: 0.1, isUnique: true, class: "Necromancer", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Deathless Visage", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Greaves of the Empty Tomb", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Lidless Wall", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Cruor's Embrace", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Grasp of Shadow", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Eyes in the Dark", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Skyhunter", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Asheara's Khanjar", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Scoundrel's Kiss", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Staff of Endless Rage", dropRate: 0.1, isUnique: true, class: "Sorcerer", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Iceheart Brais", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Raiment of the Infinite", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Esadora's Overflowing Cameo", dropRate: 0.05, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+    ],
+
+    "Grigoire, The Galvanic Saint": [
+        // Uniques
+        { name: "Penitent Greaves", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Ramaladni's Magnum Opus", dropRate: 0.1, isUnique: true, class: "Barbarian", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Rage of Harrogath", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Battle Trance", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "The Butcher's Cleaver", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Insatiable Fury", dropRate: 0.1, isUnique: true, class: "Druid", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Hunter's Zenith", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Waxing Gibbous", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "The Butcher's Cleaver", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Earthbreaker", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Blood Artisan's Cuirass", dropRate: 0.1, isUnique: true, class: "Necromancer", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Howl from Below", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Greaves of the Empty Tomb", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Ebonpiercer", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Word of Hakan", dropRate: 0.1, isUnique: true, class: "Rogue", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Grasp of Shadow", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Windforce", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Saboteur's Signet", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Staff of Lam Esen", dropRate: 0.05, isUnique: true, class: "Sorcerer", imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Iceheart Brais", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Gloves of the Illuminator", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+        { name: "Flameweaver", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tyraels_might.png' },
+    ],
+
+    "Echos of Varshan": [
+        // Uniques
+        { name: "Frostburn", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/frostburn.png' },
+        { name: "Mother's Embrace", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/mothers_embrace.png' },
+        { name: "Fields of Crimson", dropRate: 0.1, isUnique: true, class: "Barbarian", imageUrl: 'images/items/fields_of_crimson.png' },
+        { name: "100,000 Steps", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/100000_steps.png' },
+        { name: "Gohr's Devastating Grips", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/gohrs_devastating_grips.png' },
+        { name: "Ring of Red Furor", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/ring_of_red_furor.png' },
+        { name: "Mad Wolf's Glee", dropRate: 0.1, isUnique: true, class: "Druid", imageUrl: 'images/items/mad_wolfs_glee.png' },
+        { name: "Vasily's Prayer", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/vasilys_prayer.png' },
+        { name: "Greatstaff of the Crone", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/greatstaff_of_the_crone.png' },
+        { name: "Airidah's Inexorable Will", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/airidahs_inexorable_will.png' },
+        { name: "Bloodless Scream", dropRate: 0.1, isUnique: true, class: "Necromancer", imageUrl: 'images/items/blood_artisans_cuirass.png' },
+        { name: "Deathless Visage", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/deathless_visage.png' },
+        { name: "Deathspeaker's Pendant", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/deathspeakers_pendant.png' },
+        { name: "Ring of the Sacrilegious Soul", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/ring_of_the_sacrilegious_soul.png' },
+        { name: "Condemnation", dropRate: 0.1, isUnique: true, class: "Rogue", imageUrl: 'images/items/condemnation.png' },
+        { name: "Eyes in the Dark", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/eyes_in_the_dark.png' },
+        { name: "Skyhunter", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/skyhunter.png' },
+        { name: "Writhing Band of Trickery", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/writhing_band_of_trickery.png' },
+        { name: "Staff of Endless Rage", dropRate: 0.1, isUnique: true, class: "Sorcerer", imageUrl: 'images/items/staff_of_endless_rage.png' },
+        { name: "Esu's Heirloom", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/esus_heirloom.png' },
+        { name: "Raiment of the Infinite", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/raiment_of_the_infinite.png' },
+        { name: "Tal Rasha's Iridescent Loop", dropRate: 0.1, isUnique: true, imageUrl: 'images/items/tal_rashas_iridescent_loop.png' },
+    ],
+}
+};
+
+// Lista de itens lendários genéricos
+const legendaryItems = [
+    { name: "Lendário 1", imageUrl: 'images/items/legendary_(1).png', isLegendary: true },
+    { name: "Lendário 2", imageUrl: 'images/items/legendary_(2).png', isLegendary: true },
+    { name: "Lendário 3", imageUrl: 'images/items/legendary_(3).png', isLegendary: true },
+    { name: "Lendário 4", imageUrl: 'images/items/legendary_(4).png', isLegendary: true },
+    { name: "Lendário 5", imageUrl: 'images/items/legendary_(5).png', isLegendary: true },
+    { name: "Lendário 6", imageUrl: 'images/items/legendary_(6).png', isLegendary: true },
+    { name: "Lendário 7", imageUrl: 'images/items/legendary_(7).png', isLegendary: true },
+    { name: "Lendário 8", imageUrl: 'images/items/legendary_(8).png', isLegendary: true },
+    { name: "Lendário 9", imageUrl: 'images/items/legendary_(9).png', isLegendary: true },
+    { name: "Lendário 10", imageUrl: 'images/items/legendary_(10).png', isLegendary: true },
+    { name: "Lendário 11", imageUrl: 'images/items/legendary_(11).png', isLegendary: true },
+    { name: "Lendário 12", imageUrl: 'images/items/legendary_(12).png', isLegendary: true },
+    { name: "Lendário 13", imageUrl: 'images/items/legendary_(13).png', isLegendary: true },
+    { name: "Lendário 14", imageUrl: 'images/items/legendary_(14).png', isLegendary: true },
+    { name: "Lendário 15", imageUrl: 'images/items/legendary_(15).png', isLegendary: true },
+    { name: "Lendário 16", imageUrl: 'images/items/legendary_(16).png', isLegendary: true },
+    { name: "Lendário 17", imageUrl: 'images/items/legendary_(17).png', isLegendary: true },
+    { name: "Lendário 18", imageUrl: 'images/items/legendary_(18).png', isLegendary: true },
+    { name: "Lendário 19", imageUrl: 'images/items/legendary_(19).png', isLegendary: true },
+    { name: "Lendário 20", imageUrl: 'images/items/legendary_(20).png', isLegendary: true },
+    { name: "Lendário 21", imageUrl: 'images/items/legendary_(21).png', isLegendary: true },
+    { name: "Lendário 22", imageUrl: 'images/items/legendary_(22).png', isLegendary: true },
+    { name: "Lendário 23", imageUrl: 'images/items/legendary_(23).png', isLegendary: true },
+    { name: "Lendário 24", imageUrl: 'images/items/legendary_(24).png', isLegendary: true },
+    { name: "Lendário 25", imageUrl: 'images/items/legendary_(25).png', isLegendary: true },
+    { name: "Lendário 26", imageUrl: 'images/items/legendary_(26).png', isLegendary: true },
+    { name: "Lendário 27", imageUrl: 'images/items/legendary_(27).png', isLegendary: true },
+    { name: "Lendário 28", imageUrl: 'images/items/legendary_(28).png', isLegendary: true },
+    { name: "Lendário 29", imageUrl: 'images/items/legendary_(29).png', isLegendary: true },
+    { name: "Lendário 30", imageUrl: 'images/items/legendary_(30).png', isLegendary: true },
+    { name: "Lendário 31", imageUrl: 'images/items/legendary_(31).png', isLegendary: true },
+    { name: "Lendário 32", imageUrl: 'images/items/legendary_(32).png', isLegendary: true },
+    { name: "Lendário 33", imageUrl: 'images/items/legendary_(33).png', isLegendary: true },
+    { name: "Lendário 34", imageUrl: 'images/items/legendary_(34).png', isLegendary: true },
+    { name: "Lendário 35", imageUrl: 'images/items/legendary_(35).png', isLegendary: true },
+    { name: "Lendário 36", imageUrl: 'images/items/legendary_(36).png', isLegendary: true },
+    { name: "Lendário 37", imageUrl: 'images/items/legendary_(37).png', isLegendary: true },
+    { name: "Lendário 38", imageUrl: 'images/items/legendary_(38).png', isLegendary: true },
+    { name: "Lendário 39", imageUrl: 'images/items/legendary_(39).png', isLegendary: true },
+    { name: "Lendário 40", imageUrl: 'images/items/legendary_(40).png', isLegendary: true },
+    { name: "Lendário 41", imageUrl: 'images/items/legendary_(41).png', isLegendary: true },
+    { name: "Lendário 42", imageUrl: 'images/items/legendary_(42).png', isLegendary: true },
+    { name: "Lendário 43", imageUrl: 'images/items/legendary_(43).png', isLegendary: true },
+    { name: "Lendário 44", imageUrl: 'images/items/legendary_(44).png', isLegendary: true },
+    { name: "Lendário 45", imageUrl: 'images/items/legendary_(45).png', isLegendary: true },
+    { name: "Lendário 46", imageUrl: 'images/items/legendary_(46).png', isLegendary: true },
+    { name: "Lendário 47", imageUrl: 'images/items/legendary_(47).png', isLegendary: true },
+    { name: "Lendário 48", imageUrl: 'images/items/legendary_(48).png', isLegendary: true },
+    { name: "Lendário 49", imageUrl: 'images/items/legendary_(49).png', isLegendary: true },
+    { name: "Lendário 50", imageUrl: 'images/items/legendary_(50).png', isLegendary: true },
+    { name: "Lendário 51", imageUrl: 'images/items/legendary_(51).png', isLegendary: true },
+    { name: "Lendário 52", imageUrl: 'images/items/legendary_(52).png', isLegendary: true },
+    { name: "Lendário 53", imageUrl: 'images/items/legendary_(53).png', isLegendary: true },
+    { name: "Lendário 54", imageUrl: 'images/items/legendary_(54).png', isLegendary: true },
+    { name: "Lendário 55", imageUrl: 'images/items/legendary_(55).png', isLegendary: true },
+    { name: "Lendário 56", imageUrl: 'images/items/legendary_(56).png', isLegendary: true },
+    { name: "Lendário 57", imageUrl: 'images/items/legendary_(57).png', isLegendary: true },
+    { name: "Lendário 58", imageUrl: 'images/items/legendary_(58).png', isLegendary: true },
+    { name: "Lendário 59", imageUrl: 'images/items/legendary_(59).png', isLegendary: true },
+    { name: "Lendário 60", imageUrl: 'images/items/legendary_(60).png', isLegendary: true },
+    { name: "Lendário 61", imageUrl: 'images/items/legendary_(61).png', isLegendary: true },
+    { name: "Lendário 62", imageUrl: 'images/items/legendary_(62).png', isLegendary: true },
+    { name: "Lendário 63", imageUrl: 'images/items/legendary_(63).png', isLegendary: true },
+    { name: "Lendário 64", imageUrl: 'images/items/legendary_(64).png', isLegendary: true },
+    { name: "Lendário 65", imageUrl: 'images/items/legendary_(65).png', isLegendary: true },
+    { name: "Lendário 66", imageUrl: 'images/items/legendary_(66).png', isLegendary: true },
+    { name: "Lendário 67", imageUrl: 'images/items/legendary_(67).png', isLegendary: true },
+    { name: "Lendário 68", imageUrl: 'images/items/legendary_(68).png', isLegendary: true },
+    { name: "Lendário 69", imageUrl: 'images/items/legendary_(69).png', isLegendary: true },
+    { name: "Lendário 70", imageUrl: 'images/items/legendary_(70).png', isLegendary: true },
+    { name: "Lendário 71", imageUrl: 'images/items/legendary_(71).png', isLegendary: true },
+    { name: "Lendário 72", imageUrl: 'images/items/legendary_(72).png', isLegendary: true },
+    { name: "Lendário 73", imageUrl: 'images/items/legendary_(73).png', isLegendary: true },
+    { name: "Lendário 74", imageUrl: 'images/items/legendary_(74).png', isLegendary: true },
+    { name: "Lendário 75", imageUrl: 'images/items/legendary_(75).png', isLegendary: true },
+    { name: "Lendário 76", imageUrl: 'images/items/legendary_(76).png', isLegendary: true },
+    { name: "Lendário 77", imageUrl: 'images/items/legendary_(77).png', isLegendary: true },
+    { name: "Lendário 78", imageUrl: 'images/items/legendary_(78).png', isLegendary: true },
+    { name: "Lendário 79", imageUrl: 'images/items/legendary_(79).png', isLegendary: true },
+    { name: "Lendário 80", imageUrl: 'images/items/legendary_(80).png', isLegendary: true },
+    { name: "Lendário 81", imageUrl: 'images/items/legendary_(81).png', isLegendary: true },
+    { name: "Lendário 82", imageUrl: 'images/items/legendary_(82).png', isLegendary: true },
+    { name: "Lendário 83", imageUrl: 'images/items/legendary_(83).png', isLegendary: true },
+    { name: "Lendário 84", imageUrl: 'images/items/legendary_(84).png', isLegendary: true },
+    { name: "Lendário 85", imageUrl: 'images/items/legendary_(85).png', isLegendary: true },
+    { name: "Lendário 86", imageUrl: 'images/items/legendary_(86).png', isLegendary: true },
+    { name: "Lendário 87", imageUrl: 'images/items/legendary_(87).png', isLegendary: true },
+    { name: "Lendário 88", imageUrl: 'images/items/legendary_(88).png', isLegendary: true },
+    { name: "Lendário 89", imageUrl: 'images/items/legendary_(89).png', isLegendary: true },
+    { name: "Lendário 90", imageUrl: 'images/items/legendary_(90).png', isLegendary: true },
+    { name: "Lendário 91", imageUrl: 'images/items/legendary_(91).png', isLegendary: true },
+    { name: "Lendário 92", imageUrl: 'images/items/legendary_(92).png', isLegendary: true },
+    { name: "Lendário 93", imageUrl: 'images/items/legendary_(93).png', isLegendary: true },
+    { name: "Lendário 94", imageUrl: 'images/items/legendary_(94).png', isLegendary: true },
+    { name: "Lendário 95", imageUrl: 'images/items/legendary_(95).png', isLegendary: true },
+    { name: "Lendário 96", imageUrl: 'images/items/legendary_(96).png', isLegendary: true },
+    { name: "Lendário 97", imageUrl: 'images/items/legendary_(97).png', isLegendary: true },
+    { name: "Lendário 98", imageUrl: 'images/items/legendary_(98).png', isLegendary: true },
+    { name: "Lendário 99", imageUrl: 'images/items/legendary_(99).png', isLegendary: true },
+    { name: "Lendário 100", imageUrl: 'images/items/legendary_(100).png', isLegendary: true },
+    { name: "Lendário 101", imageUrl: 'images/items/legendary_(101).png', isLegendary: true },
+    { name: "Lendário 102", imageUrl: 'images/items/legendary_(102).png', isLegendary: true },
+    { name: "Lendário 103", imageUrl: 'images/items/legendary_(103).png', isLegendary: true },
+    { name: "Lendário 104", imageUrl: 'images/items/legendary_(104).png', isLegendary: true },
+    { name: "Lendário 105", imageUrl: 'images/items/legendary_(105).png', isLegendary: true },
+    { name: "Lendário 106", imageUrl: 'images/items/legendary_(106).png', isLegendary: true },
+    { name: "Lendário 107", imageUrl: 'images/items/legendary_(107).png', isLegendary: true },
+    { name: "Lendário 108", imageUrl: 'images/items/legendary_(108).png', isLegendary: true },
+    { name: "Lendário 109", imageUrl: 'images/items/legendary_(109).png', isLegendary: true },
+    { name: "Lendário 110", imageUrl: 'images/items/legendary_(110).png', isLegendary: true },
+    { name: "Lendário 111", imageUrl: 'images/items/legendary_(111).png', isLegendary: true },
+    { name: "Lendário 112", imageUrl: 'images/items/legendary_(112).png', isLegendary: true },
+    { name: "Lendário 113", imageUrl: 'images/items/legendary_(113).png', isLegendary: true },
+    { name: "Lendário 114", imageUrl: 'images/items/legendary_(114).png', isLegendary: true },
+    { name: "Lendário 115", imageUrl: 'images/items/legendary_(115).png', isLegendary: true },
+    { name: "Lendário 116", imageUrl: 'images/items/legendary_(116).png', isLegendary: true },
+    { name: "Lendário 117", imageUrl: 'images/items/legendary_(117).png', isLegendary: true },
+    { name: "Lendário 118", imageUrl: 'images/items/legendary_(118).png', isLegendary: true },
+    { name: "Lendário 119", imageUrl: 'images/items/legendary_(119).png', isLegendary: true },
+    { name: "Lendário 120", imageUrl: 'images/items/legendary_(120).png', isLegendary: true },
+    { name: "Lendário 121", imageUrl: 'images/items/legendary_(121).png', isLegendary: true },
+    { name: "Lendário 122", imageUrl: 'images/items/legendary_(122).png', isLegendary: true },
+    { name: "Lendário 123", imageUrl: 'images/items/legendary_(123).png', isLegendary: true },
+    { name: "Lendário 124", imageUrl: 'images/items/legendary_(124).png', isLegendary: true },
+    { name: "Lendário 125", imageUrl: 'images/items/legendary_(125).png', isLegendary: true },
+    { name: "Lendário 126", imageUrl: 'images/items/legendary_(126).png', isLegendary: true },
+    { name: "Lendário 127", imageUrl: 'images/items/legendary_(127).png', isLegendary: true },
+    { name: "Lendário 128", imageUrl: 'images/items/legendary_(128).png', isLegendary: true },
+    { name: "Lendário 129", imageUrl: 'images/items/legendary_(129).png', isLegendary: true },
+    { name: "Lendário 130", imageUrl: 'images/items/legendary_(130).png', isLegendary: true },
+    { name: "Lendário 131", imageUrl: 'images/items/legendary_(131).png', isLegendary: true },
+    { name: "Lendário 132", imageUrl: 'images/items/legendary_(132).png', isLegendary: true },
+    { name: "Lendário 133", imageUrl: 'images/items/legendary_(133).png', isLegendary: true },
+    { name: "Lendário 134", imageUrl: 'images/items/legendary_(134).png', isLegendary: true },
+    { name: "Lendário 135", imageUrl: 'images/items/legendary_(135).png', isLegendary: true },
+    { name: "Lendário 136", imageUrl: 'images/items/legendary_(136).png', isLegendary: true },
+    { name: "Lendário 137", imageUrl: 'images/items/legendary_(137).png', isLegendary: true },
+    { name: "Lendário 138", imageUrl: 'images/items/legendary_(138).png', isLegendary: true },
+    { name: "Lendário 139", imageUrl: 'images/items/legendary_(139).png', isLegendary: true },
+    { name: "Lendário 140", imageUrl: 'images/items/legendary_(140).png', isLegendary: true },
+    { name: "Lendário 141", imageUrl: 'images/items/legendary_(141).png', isLegendary: true },
+    { name: "Lendário 142", imageUrl: 'images/items/legendary_(142).png', isLegendary: true },
+    { name: "Lendário 143", imageUrl: 'images/items/legendary_(143).png', isLegendary: true },
+    { name: "Lendário 144", imageUrl: 'images/items/legendary_(144).png', isLegendary: true },
+];
+
+
+const mythicUniques = [
+    { name: "The Grandfather", dropRate: 0.015, class: ["Barbarian, Necromancer"], rarity: "Uber Rare", imageUrl: 'images/items/the_grandfather.png', isMythic: true },
+    { name: "Ahavarion, Spear of Lycander", dropRate: 0.015, class: ["Druid, Sorcerer"], rarity: "Uber Rare", imageUrl: 'images/items/ahavarion_spear_of_lycander.png', isMythic: true },
+    { name: "Doombringer", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'images/items/doombringer.png', isMythic: true },
+    { name: "Melted Heart of Selig", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'images/items/melted_heart_of_selig.png', isMythic: true },
+    { name: "Andariel's Visage", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'images/items/andariels_visage.png', isMythic: true },
+    { name: "Harlequin Crest", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'images/items/harlequin_crest.png', isMythic: true },
+    { name: "Tyreal's Might", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'images/items/tyraels_might.png', isMythic: true },
+    { name: "Ring of Starless Skies", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'images/items/ring_of_starless_skies.png', isMythic: true },
+];
+
+        // Função para gerar loot
+        const generateLoot = (bossLootTable, totalLoot) => {
+            const drops = [];
+            const uniqueItemCount = Math.floor(Math.random() * 2) + 4; // Entre 4 e 5 itens únicos
+
+            // Adiciona itens únicos
+            while (drops.filter(item => item.isUnique).length < uniqueItemCount) {
+                const uniqueItems = bossLootTable.filter(item => item.isUnique);
+                if (uniqueItems.length > 0) {
+                    let item = uniqueItems[Math.floor(Math.random() * uniqueItems.length)];
+                    if (!drops.some(d => d.name === item.name)) {
+                        drops.push({ ...item, imageUrl: `images/${item.imageUrl}` });
+                    }
+                }
+            }
+
+            // Adiciona itens lendários adicionais se necessário
+            while (drops.length < totalLoot) {
+                const item = legendaryItems[Math.floor(Math.random() * legendaryItems.length)];
+                drops.push({ name: item.name, isLegendary: true, imageUrl: `images/${item.imageUrl}` });
+            }
+
+            return drops;
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const inventory = document.querySelector('.inventory');
+            const simulateButton = document.getElementById('simulateButton');
+            const bossAlert = document.getElementById('boss-alert');
+            let selectedBoss = null; // Variável para armazenar o boss selecionado
+            const simulationCountElement = document.getElementById('simulationCount');
+            const mythicItemCountElement = document.getElementById('mythicItemCount');
+            const resetButton = document.getElementById('resetButton');
+            let simulationCount = 0;
+            let mythicItemCount = 0;
+
+            // Função para criar um item do inventário
+            const createItem = (item) => {
+                const div = document.createElement('div');
+                div.className = 'inventory-item';
+
+                // Adiciona classes específicas com base no tipo do item
+                if (item.isMythic) {
+                    div.classList.add('mythic');
+                } else if (item.isUnique) {
+                    div.classList.add('unique');
+                } else if (item.isLegendary) {
+                    div.classList.add('legendary');
+                }
+
+                // Se o item tem uma imagem, define a imagem de fundo da div
+                if (item.imageUrl) {
+                    const img = document.createElement('img');
+                    img.src = item.imageUrl;
+                    img.alt = item.name || 'Item';
+                    img.className = 'item-image'; // Classe CSS para estilizar a imagem
+                    div.appendChild(img);
+                }
+
+                // Se o item tem um nome, cria um elemento para o nome e o adiciona como um filho
+                if (item.name) {
+                    const name = document.createElement('span');
+                    name.textContent = item.name;
+                    name.className = 'item-name'; // Classe CSS para estilizar o nome
+                    div.appendChild(name);
+                }
+
+                return div;
+            };
+
+            // Função para atualizar o inventário
+            const updateInventory = (items) => {
+                inventory.innerHTML = ''; // Limpa o inventário antes de preencher
+
+                items.forEach(item => {
+                    const inventoryItem = createItem(item);
+                    inventory.appendChild(inventoryItem);
+                });
+
+                // Preencher os espaços vazios se houver menos itens do que células
+                const totalCells = 33; // 3 filas x 11 colunas
+                const currentItems = items.length;
+                for (let i = currentItems; i < totalCells; i++) {
+                    const emptyItem = createItem({}); // Cria um item vazio
+                    inventory.appendChild(emptyItem);
+                }
+            };
+
+            // Função para lidar com a seleção do boss
+            const handleBossSelection = (event) => {
+                const button = event.target.closest('.boss-button');
+                if (button) {
+                    // Remove a classe 'selected' de todos os botões
+                    document.querySelectorAll('.boss-button').forEach(btn => btn.classList.remove('selected'));
+                    // Adiciona a classe 'selected' ao botão clicado
+                    button.classList.add('selected');
+                    // Atualiza o boss selecionado
+                    selectedBoss = button.getAttribute('data-boss');
+                }
+            };
+
+            // Adiciona evento de clique para a seleção do boss
+            document.querySelectorAll('.boss-button').forEach(button => {
+                button.addEventListener('click', handleBossSelection);
+            });
+
+            // Adiciona evento de clique para o botão de simulação
+            simulateButton.addEventListener('click', () => {
+                if (selectedBoss) {
+                    // Obtém a tabela de loot para o boss selecionado
+                    const lootTable = lootTables.BossLootTables[selectedBoss];
+
+                    if (lootTable) {
+                        // Incrementar o contador de simulações
+                        simulationCount++;
+                        simulationCountElement.textContent = simulationCount;
+
+                        // Filtrar itens míticos
+                        const mythicItems = mythicUniques.filter(item => Math.random() < item.dropRate);
+                        mythicItemCount += mythicItems.length;
+                        mythicItemCountElement.textContent = mythicItemCount;
+
+                        // Filtrar itens únicos e lendários
+                        const uniqueItems = lootTable.filter(item => item.isUnique);
+                        const filteredLegendaryItems = legendaryItems; // Aqui você já tem todos os itens lendários
+
+                        // Definir a quantidade de itens únicos e lendários na simulação
+                        const totalItems = 21 + Math.floor(Math.random() * 3); // De 21 a 23 itens
+                        const numberOfUniqueItems = 4 + Math.floor(Math.random() * 2); // De 4 a 5 itens únicos
+
+                        // Selecionar itens aleatórios
+                        const selectedUniqueItems = uniqueItems.sort(() => 0.5 - Math.random()).slice(0, numberOfUniqueItems);
+                        const remainingItemsCount = totalItems - numberOfUniqueItems;
+                        const selectedLegendaryItems = filteredLegendaryItems.sort(() => 0.5 - Math.random()).slice(0, remainingItemsCount);
+
+                        // Combinar itens únicos e lendários
+                        const allItems = [...selectedUniqueItems, ...selectedLegendaryItems, ...mythicItems];
+
+                        // Atualizar o inventário
+                        updateInventory(allItems);
+                    } else {
+                        console.error(`Tabela de loot para o boss "${selectedBoss}" não encontrada.`);
+                    }
+                } else {
+                    // Mostrar o aviso personalizado
+                    bossAlert.classList.add('show');
+
+                    // Ocultar o aviso após 3 segundos
+                    setTimeout(() => {
+                        bossAlert.classList.remove('show');
+                    }, 4000);
+                }
+            });
+
+            resetButton.addEventListener('click', () => {
+                simulationCount = 0;
+                mythicItemCount = 0;
+                simulationCountElement.textContent = simulationCount;
+                mythicItemCountElement.textContent = mythicItemCount;
+            });
+        });
+
+</script>
 	
 </body>
 </html>

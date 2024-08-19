@@ -1,7 +1,7 @@
 // data.js
 
-{
-  "lootTables": {
+const lootTables = {
+    "Echo of Andariel": [
         // Uniques
         { name: "Godslayer Crown", dropRate: 0.001, isUnique: true, imageUrl: 'tyraels_might.png' },
         { name: "Flickerstep", dropRate: 0.001, isUnique: true, imageUrl: 'tyraels_might.png' },
@@ -165,7 +165,7 @@
 };
 
 // Lista de itens lendários genéricos
-"legendaryItems": [
+const legendaryItems = [
     { name: "Lendário 1", imageUrl: 'legendary_(1).png', isLegendary: true },
     { name: "Lendário 2", imageUrl: 'legendary_(2).png', isLegendary: true },
     { name: "Lendário 3", imageUrl: 'legendary_(3).png', isLegendary: true },
@@ -313,7 +313,7 @@
 ];
 
 
-  "mythicUniques": [
+const mythicUniques = [
     { name: "The Grandfather", dropRate: 0.15, class: ["Barbarian, Necromancer"], rarity: "Uber Rare", imageUrl: 'the_grandfather.png' },
     { name: "Ahavarion, Spear of Lycander", dropRate: 0.015, class: ["Druid, Sorcerer"], rarity: "Uber Rare", imageUrl: 'ahavarion_spear_of_lycander.png' },
     { name: "Doombringer", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'doombringer.png' },
@@ -322,5 +322,6 @@
     { name: "Harlequin Crest", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'harlequin_crest.png' },
     { name: "Tyreal's Might", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'tyraels_might.png' },
     { name: "Ring of Starless Skies", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'ring_of_starless_skies.png' },
-]
-}
+];
+
+module.exports = { lootTables, legendaryItems, mythicUniques };
