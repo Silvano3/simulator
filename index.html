@@ -399,39 +399,29 @@ const legendaryItems = [
 
 
 const mythicUniques = [
-    { name: "The Grandfather", dropRate: 0.015, class: ["Barbarian, Necromancer"], rarity: "Uber Rare", imageUrl: 'images/items/the_grandfather.png', isMythic: true },
-    { name: "Ahavarion, Spear of Lycander", dropRate: 0.015, class: ["Druid, Sorcerer"], rarity: "Uber Rare", imageUrl: 'images/items/ahavarion_spear_of_lycander.png', isMythic: true },
-    { name: "Doombringer", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'images/items/doombringer.png', isMythic: true },
-    { name: "Melted Heart of Selig", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'images/items/melted_heart_of_selig.png', isMythic: true },
-    { name: "Andariel's Visage", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'images/items/andariels_visage.png', isMythic: true },
-    { name: "Harlequin Crest", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'images/items/harlequin_crest.png', isMythic: true },
-    { name: "Tyreal's Might", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'images/items/tyraels_might.png', isMythic: true },
-    { name: "Ring of Starless Skies", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'images/items/ring_of_starless_skies.png', isMythic: true },
+    { name: "The Grandfather", dropRate: 0.015, class: ["Barbarian, Necromancer"], rarity: "Uber Rare", imageUrl: 'items/the_grandfather.png', isMythic: true },
+    { name: "Ahavarion, Spear of Lycander", dropRate: 0.015, class: ["Druid, Sorcerer"], rarity: "Uber Rare", imageUrl: 'items/ahavarion_spear_of_lycander.png', isMythic: true },
+    { name: "Doombringer", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'items/doombringer.png', isMythic: true },
+    { name: "Melted Heart of Selig", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'items/melted_heart_of_selig.png', isMythic: true },
+    { name: "Andariel's Visage", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'items/andariels_visage.png', isMythic: true },
+    { name: "Harlequin Crest", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'items/harlequin_crest.png', isMythic: true },
+    { name: "Tyreal's Might", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'items/tyraels_might.png', isMythic: true },
+    { name: "Ring of Starless Skies", dropRate: 0.015, rarity: "Uber Rare", imageUrl: 'items/ring_of_starless_skies.png', isMythic: true },
 ];
 
-        // Função para gerar loot
-        const generateLoot = (bossLootTable, totalLoot) => {
-            const drops = [];
-            const uniqueItemCount = Math.floor(Math.random() * 2) + 4; // Entre 4 e 5 itens únicos
+        // Função para gerar itens míticos com base na probabilidade
+        const generateMythicItems = () => {
+            const mythicDrops = [];
+            const mythicProbability = 0.015; // Probabilidade de 1.5% para cada item mítico
 
-            // Adiciona itens únicos
-            while (drops.filter(item => item.isUnique).length < uniqueItemCount) {
-                const uniqueItems = bossLootTable.filter(item => item.isUnique);
-                if (uniqueItems.length > 0) {
-                    let item = uniqueItems[Math.floor(Math.random() * uniqueItems.length)];
-                    if (!drops.some(d => d.name === item.name)) {
-                        drops.push({ ...item, imageUrl: `images/${item.imageUrl}` });
-                    }
+            for (let i = 0; i < 5; i++) { // Pode ajustar o número de tentativas
+                if (Math.random() < mythicProbability) {
+                    const mythic = mythicUniques[Math.floor(Math.random() * mythicUniques.length)];
+                    mythicDrops.push({ name: mythic.name, isMythic: true, imageUrl: `images/${mythic.imageUrl}` });
                 }
             }
 
-            // Adiciona itens lendários adicionais se necessário
-            while (drops.length < totalLoot) {
-                const item = legendaryItems[Math.floor(Math.random() * legendaryItems.length)];
-                drops.push({ name: item.name, isLegendary: true, imageUrl: `images/${item.imageUrl}` });
-            }
-
-            return drops;
+            return mythicDrops;
         };
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -526,14 +516,16 @@ const mythicUniques = [
                         simulationCount++;
                         simulationCountElement.textContent = simulationCount;
 
-                        // Filtrar itens míticos
-                        const mythicItems = mythicUniques.filter(item => Math.random() < item.dropRate);
+                        // Gerar itens míticos
+                        const mythicItems = generateMythicItems();
                         mythicItemCount += mythicItems.length;
                         mythicItemCountElement.textContent = mythicItemCount;
 
                         // Filtrar itens únicos e lendários
                         const uniqueItems = lootTable.filter(item => item.isUnique);
                         const filteredLegendaryItems = legendaryItems; // Aqui você já tem todos os itens lendários
+                        console.log('Unique Items:', uniqueItems);
+                        console.log('Legendary Items:', legendaryItems);
 
                         // Definir a quantidade de itens únicos e lendários na simulação
                         const totalItems = 21 + Math.floor(Math.random() * 3); // De 21 a 23 itens
@@ -544,7 +536,7 @@ const mythicUniques = [
                         const remainingItemsCount = totalItems - numberOfUniqueItems;
                         const selectedLegendaryItems = filteredLegendaryItems.sort(() => 0.5 - Math.random()).slice(0, remainingItemsCount);
 
-                        // Combinar itens únicos e lendários
+                        // Combinar itens únicos e lendários com itens míticos
                         const allItems = [...selectedUniqueItems, ...selectedLegendaryItems, ...mythicItems];
 
                         // Atualizar o inventário
@@ -563,6 +555,7 @@ const mythicUniques = [
                 }
             });
 
+            // Adiciona evento de clique para o botão de resetar
             resetButton.addEventListener('click', () => {
                 simulationCount = 0;
                 mythicItemCount = 0;
@@ -570,8 +563,7 @@ const mythicUniques = [
                 mythicItemCountElement.textContent = mythicItemCount;
             });
         });
-
-</script>
+    </script>
 	
 </body>
 </html>
