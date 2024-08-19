@@ -1,17 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     const inventory = document.querySelector('.inventory');
     const simulateButton = document.getElementById('simulateButton');
-	const bossAlert = document.getElementById('boss-alert');
-    let selectedBoss = null; // Variável para armazenar o boss selecionado
+    const bossAlert = document.getElementById('boss-alert');
     const simulationCountElement = document.getElementById('simulationCount');
     const mythicItemCountElement = document.getElementById('mythicItemCount');
     const resetButton = document.getElementById('resetButton');
-	const alertBox = document.getElementById('alert-box');
+    const alertBox = document.getElementById('alert-box');
 
     let simulationCount = 0;
     let mythicItemCount = 0;
-	
-	
+    let selectedBoss = null; // Variável para armazenar o boss selecionado
+
     // Função para criar um item do inventário
     const createItem = (item) => {
         const div = document.createElement('div');
@@ -26,13 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
             div.classList.add('legendary');
         }
 
-		// Verifique o item recebido
-		console.log('Criando item:', item);
-
+        // Verifique o item recebido
+        console.log('Criando item:', item);
 
         // Se o item tem uma imagem, define a imagem de fundo da div
         if (item.imageUrl) {
-			console.log('Imagem URL:', item.imageUrl); // Verifique a URL da imagem
+            console.log('Imagem URL:', item.imageUrl); // Verifique a URL da imagem
             const img = document.createElement('img');
             img.src = item.imageUrl;
             img.alt = item.name || 'Item';
@@ -87,17 +85,29 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', handleBossSelection);
     });
 
+document.getElementById('load-data').addEventListener('click', () => {
+    fetch('data.json')
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log(data); // Verifique os dados no console
+      })
+      .catch(error => console.error('Erro ao obter o loot:', error));
+});
+
+
+
     // Adiciona evento de clique para o botão de simulação
     simulateButton.addEventListener('click', () => {
         if (selectedBoss) {
-            fetch('data.js')
+            fetch('data.json')
                 .then(response => response.json())
                 .then(data => {
-					
-					
-					
-					
-					// Incrementar o contador de simulações
+                    // Incrementar o contador de simulações
                     simulationCount++;
                     simulationCountElement.textContent = simulationCount;
 
@@ -106,9 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     mythicItemCount += mythicItems;
                     mythicItemCountElement.textContent = mythicItemCount;
 
-					
-					
-					
                     // Combine todos os itens
                     const allItems = [...data.drops, ...data.mythicDrops];
                     updateInventory(allItems);
@@ -126,13 +133,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 4000);
         }
     });
-	
-	resetButton.addEventListener('click', () => {
-    console.log('Reset button clicked'); // Verifique se esta mensagem aparece no console
-    simulationCount = 0;
-    mythicItemCount = 0;
-    simulationCountElement.textContent = simulationCount;
-    mythicItemCountElement.textContent = mythicItemCount;
-});
-	
+
+    // Adiciona evento de clique para o botão de reset
+    resetButton.addEventListener('click', () => {
+        console.log('Reset button clicked');
+        simulationCount = 0;
+        mythicItemCount = 0;
+        simulationCountElement.textContent = simulationCount;
+        mythicItemCountElement.textContent = mythicItemCount;
+    });
 });
