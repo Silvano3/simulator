@@ -5,30 +5,50 @@ body {
     flex-direction: column; /* Coloca o conteúdo em coluna */
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    height: 10vh;
+    margin: 0 auto; /* Centraliza o contêiner na página */
     background-color: #1C1C1C;
+	max-width: 2000px; /* Define um limite máximo de largura */
+    max-height: 700px; /* Ajusta a altura conforme o conteúdo */
 }
+
+.container {
+    position: relative; /* Permite o posicionamento absoluto dos elementos filhos */
+    width: 80%; /* Ajuste a largura do contêiner conforme necessário */
+    max-width: 2000px; /* Define um limite máximo de largura */
+    max-height: 700px; /* Ajusta a altura conforme o conteúdo */
+    background-color: ; /* Cor de fundo para destacar o contêiner */
+    padding: 20px; /* Espaçamento interno */
+
+}
+
 
 /* Estilo para o título */
 h1 {
-    text-align: center;
-    margin-bottom: 10px;
-	font-family: 'DiabloFont', serif; /* Aplica a fonte DiabloFont */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    margin: 0; /* Remove as margens padrão do título */
+    font-family: 'DiabloFont', serif; /* Aplica a fonte DiabloFont */
     font-weight: bold; /* Peso da fonte */
-	color: white; /* Cor do texto para garantir boa visibilidade */
-    padding-left: 55px; /* Adiciona preenchimento à esquerda para mover o título */
+    color: white; /* Cor do texto para garantir boa visibilidade */
+    padding: 0; /* Remove qualquer preenchimento para ajustar o alinhamento */
+    position: absolute; /* Posiciona o título absolutamente dentro do body */
+    top: 30px; /* Ajusta a distância do topo do body */
+    left: 360px; /* Posiciona o título no centro horizontal do body */
+    transform: translateX(-50%); /* Centraliza o título horizontalmente */
 }
 
 /* Contêiner da imagem de fundo */
 .background-container {
     position: relative;
-    width: 660px; /* Largura total do inventário, considerando o grid */
-    height: 360px; /* Altura total do inventário, considerando o grid */
-    background: url('images/inventario.png') no-repeat center center;
+    width: 773px; /* Largura total do inventário, considerando o grid */
+    height: 527px; /* Altura total do inventário, considerando o grid */
+    background: url('images/total.png') no-repeat center center;
     background-size: cover; /* Mantém a imagem de fundo proporcional */
     border-radius: 8px;
-    margin-bottom: 20px; /* Espaçamento entre o inventário e o formulário */
+    margin-top: 200px; /* Espaçamento superior ajustado para mais alinhamento */
+    margin-bottom: 10px; /* Espaçamento inferior ajustado para o inventário */
+    z-index: -20; /* Garante que a imagem de fundo fique atrás dos outros elementos */
+    padding: 0; /* Remove o padding para garantir que não haja espaços extras */
 }
 
 /* Estilo para o inventário */
@@ -38,8 +58,8 @@ h1 {
     grid-template-rows: repeat(3, 78px); /* Ajuste a altura das linhas */
     gap: 0; /* Remove o gap para que as células fiquem juntas */
     position: absolute; /* Posiciona o inventário sobre a imagem de fundo */
-    top: 64px; /* Ajusta a posição vertical do grid */
-    left: 31px; /* Ajusta a posição horizontal do grid */
+    top: 136px; /* Ajusta a posição vertical do grid */
+    left: 59px; /* Ajusta a posição horizontal do grid */
     width: calc(92% - 20px); /* Ajusta a largura do grid considerando os ajustes de posição */
     height: calc(71% - 20px); /* Ajusta a altura do grid considerando os ajustes de posição */
 }
@@ -63,7 +83,7 @@ h1 {
     box-sizing: border-box;
     margin: 0;
     overflow: hidden;
-	z-index: 9999; /* Ajuste o z-index se houver sobreposição */
+	z-index: 99; /* Ajuste o z-index se houver sobreposição */
 }
 
 
@@ -208,8 +228,8 @@ label, select, button {
     font-weight: bold; /* Peso da fonte */
     cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
     overflow: hidden; /* Oculta qualquer conteúdo que exceda a borda */
-    margin-left: 60px; /* Ajuste conforme necessário */
-	margin-top: 10px; /* Ajuste conforme necessário */
+    margin-left: 270px; /* Ajuste conforme necessário */
+	margin-top: 20px; /* Ajuste conforme necessário */
 }
 
 /* Adiciona a borda do botão */
@@ -236,9 +256,12 @@ label, select, button {
 .title-container {
     position: relative; /* Define o contexto de empilhamento para o título e a imagem */
     width: 100%; /* Ajuste conforme necessário */
-    max-width: 600px; /* Ajuste conforme necessário */
+    max-width: 300px; /* Ajuste conforme necessário */
+    max-height: 100px; /* Ajuste conforme necessário */
     text-align: center; /* Centraliza o texto */
-    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    top: 20px; /* Distância do topo do contêiner pai */
+    left: 50%; /* Distância do lado esquerdo do contêiner pai */
+    transform: translateX(-50%); /* Centraliza horizontalmente no meio do contêiner pai */
 }
 
 /* Imagem de fundo do título */
@@ -248,7 +271,7 @@ label, select, button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/title-background.png'); /* Caminho para a imagem de fundo */
+    background-image: url('images/title-background.ng'); /* Caminho para a imagem de fundo */
     background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Impede a repetição da imagem */
@@ -310,7 +333,6 @@ label, select, button {
 
 
 /* Estilo para o contêiner de seleção dos bosses */
-/* Estilo para o contêiner de seleção dos bosses */
 .boss-selection-container {
     display: flex;
     flex-direction: column; /* Alinha os botões verticalmente */
@@ -318,8 +340,8 @@ label, select, button {
     gap: 7px; /* Espaçamento entre os botões */
     margin: 30px; /* Espaçamento abaixo da seleção */
 	z-index: -2;
-    margin-left: 690px; /* Ajuste conforme necessário */
-    margin-top: -350px;  /* Ajuste conforme necessário */
+    margin-left: 723px; /* Ajuste conforme necessário */
+    margin-top: -444px;  /* Ajuste conforme necessário */
 }
 
 /* Estilo para cada botão de boss */
@@ -377,7 +399,7 @@ label, select, button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/background-d.png'); /* Caminho para a imagem de fundo */
+    background-image: url('images/background-d.ng'); /* Caminho para a imagem de fundo */
     background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Impede a repetição da imagem */
@@ -397,7 +419,7 @@ label, select, button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/title-background.png'); /* Caminho para a imagem de fundo */
+    background-image: url('images/title-background.ng'); /* Caminho para a imagem de fundo */
     background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Impede a repetição da imagem */
@@ -417,7 +439,7 @@ label, select, button {
     left: 0; /* Pode ser ajustado conforme necessário */
     width: 180px; /* Ajuste conforme necessário */
     height: 100px; /* Ajuste conforme necessário */
-    background-image: url('images/background-d.png'); /* Caminho para a imagem de fundo */
+    background-image: url('images/background-d.ng'); /* Caminho para a imagem de fundo */
     background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Impede a repetição da imagem */
@@ -448,7 +470,7 @@ label, select, button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/title-background.png'); /* Caminho para a imagem de fundo */
+    background-image: url('images/title-background.ng'); /* Caminho para a imagem de fundo */
     background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Impede a repetição da imagem */
@@ -468,7 +490,7 @@ label, select, button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/center-background.png'); /* Caminho para a imagem de fundo */
+    background-image: url('images/center-background.ng'); /* Caminho para a imagem de fundo */
     background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Impede a repetição da imagem */
@@ -483,8 +505,8 @@ label, select, button {
 
 .alert {
     position: absolute;
-    top: 60px;  /* Ajuste a partir do topo do contêiner */
-    right: 50px;  /* Ajuste a partir da direita do contêiner */
+    top: 55px;  /* Ajuste a partir do topo do contêiner */
+    right: -175px;  /* Ajuste a partir da direita do contêiner */
     padding: 15px;
     background-image: url('images/alert-background.png'); /* Caminho para a imagem de fundo */
     background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
@@ -521,20 +543,21 @@ label, select, button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/title-background.png'); /* Caminho para a imagem de fundo */
+    background-image: url('images/title-background.pg'); /* Caminho para a imagem de fundo */
     background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Impede a repetição da imagem */
     z-index: -10; /* Garante que a imagem fique atrás do texto */
     height: 790px; /* Ajuste conforme necessário */
-    width: 40%; /* Ajuste conforme necessário */
+    width: 300px; /* Ajuste conforme necessário */
     padding-left: 0px; /* Adiciona preenchimento à esquerda para mover o título */
-    margin-left: 400px;
+    margin-left: 35px;
+    margin-top: 518px;
 }
 
 .Count-background p {
     margin: 438px 0; /* Ajuste de margem para os parágrafos */
-    margin-left: -30px;
+    margin-left: 20px;
 	color: white;
     z-index: -6; /* Garante que a imagem fique atrás do texto */
 }
@@ -547,15 +570,16 @@ label, select, button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('images/title-background.png'); /* Caminho para a imagem de fundo */
+    background-image: url('images/title-background.pg'); /* Caminho para a imagem de fundo */
     background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Impede a repetição da imagem */
     z-index: -10; /* Garante que a imagem fique atrás do texto */
     height: 790px; /* Ajuste conforme necessário */
-    width: 40%; /* Ajuste conforme necessário */
-    padding-left: 0px; /* Adiciona preenchimento à esquerda para mover o título */
-    margin-left: 10px;
+    width: 300px; /* Ajuste conforme necessário */
+    padding-left: -30px; /* Adiciona preenchimento à esquerda para mover o título */
+    margin-left: -20px;
+    margin-top: -30px;
 	text-align: center; /* Centralizar o texto */
 	font-family: 'DiabloFont', serif; /* Aplica a fonte DiabloFont */
     font-weight: bold; /* Peso da fonte */
@@ -564,10 +588,12 @@ label, select, button {
 
 
 .Count-background2 p {
+    position: relative; /* Garante que o z-index funcione */
     margin: 438px 0; /* Ajuste de margem para os parágrafos */
-    margin-left: -30px;
+    margin-left: 0px;
+	margin-top: 475px;
 	color: white;
-    z-index: -6; /* Garante que a imagem fique atrás do texto */
+    z-index: 99; /* Garante que a imagem fique atrás do texto */
 }
 
 
@@ -610,8 +636,8 @@ label, select, button {
     font-weight: bold; /* Peso da fonte */
     cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
     overflow: hidden; /* Oculta qualquer conteúdo que exceda a borda */
-    margin-left: 565px; /* Ajuste conforme necessário */
-	margin-top: 423px; /* Ajuste conforme necessário */
+    margin-left: 595px; /* Ajuste conforme necessário */
+	margin-top: 428px; /* Ajuste conforme necessário */
     transition: transform 0.3s ease; /* Transição suave para o efeito de transformação */
     transform-origin: top; /* Define a origem da transformação na parte inferior */
 }
@@ -634,7 +660,7 @@ label, select, button {
     background-repeat: no-repeat; /* Impede a repetição da imagem */
     z-index: 30; /* Garante que a imagem fique atrás do texto */
     padding-left: 0px; /* Adiciona preenchimento à esquerda para mover o título */
-    margin-left: 400px; /* Ajuste conforme necessário */
+    margin-left: 500px; /* Ajuste conforme necessário */
 	margin-top: -80px; /* Ajuste conforme necessário */
     display: flex; /* Usa Flexbox para posicionar o conteúdo interno */
     align-items: center; /* Alinha verticalmente o texto ao centro */
