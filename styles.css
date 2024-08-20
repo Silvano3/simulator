@@ -47,7 +47,7 @@ h1 {
     border-radius: 8px;
     margin-top: 200px; /* Espaçamento superior ajustado para mais alinhamento */
     margin-bottom: 10px; /* Espaçamento inferior ajustado para o inventário */
-    z-index: -20; /* Garante que a imagem de fundo fique atrás dos outros elementos */
+
     padding: 0; /* Remove o padding para garantir que não haja espaços extras */
 }
 
@@ -83,7 +83,7 @@ h1 {
     box-sizing: border-box;
     margin: 0;
     overflow: hidden;
-	z-index: 99; /* Ajuste o z-index se houver sobreposição */
+	z-index: 99999; /* Ajuste o z-index se houver sobreposição */
 }
 
 
@@ -547,7 +547,7 @@ label, select, button {
     background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Impede a repetição da imagem */
-    z-index: -10; /* Garante que a imagem fique atrás do texto */
+    z-index: 999; /* Garante que a imagem fique atrás do texto */
     height: 790px; /* Ajuste conforme necessário */
     width: 300px; /* Ajuste conforme necessário */
     padding-left: 0px; /* Adiciona preenchimento à esquerda para mover o título */
@@ -574,7 +574,7 @@ label, select, button {
     background-size: contain; /* Ajusta a imagem para cobrir o contêiner */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Impede a repetição da imagem */
-    z-index: -10; /* Garante que a imagem fique atrás do texto */
+    z-index: 999; /* Garante que a imagem fique atrás do texto */
     height: 790px; /* Ajuste conforme necessário */
     width: 300px; /* Ajuste conforme necessário */
     padding-left: -30px; /* Adiciona preenchimento à esquerda para mover o título */
